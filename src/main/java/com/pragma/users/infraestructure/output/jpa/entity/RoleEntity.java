@@ -6,28 +6,23 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
-@Table(name = "user")
-public class UserEntity {
+@Table(name = "role")
+public class RoleEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private int id;
     private String name;
-    private String surname;
-    private String email;
-    private String password;
-    private LocalDate birthdate;
-    private String phone;
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "role")
-    private RoleEntity role;
+    private String description;
+    @OneToMany(mappedBy = "role", fetch = FetchType.LAZY)
+    private List<UserEntity> users;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 }

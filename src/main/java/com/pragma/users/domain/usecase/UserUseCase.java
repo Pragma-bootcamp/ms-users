@@ -6,7 +6,7 @@ import com.pragma.users.domain.constant.ErrorMessage;
 import com.pragma.users.domain.constant.UserConstant;
 import com.pragma.users.domain.exception.UserException;
 import com.pragma.users.domain.model.User;
-import com.pragma.users.domain.spi.IUserPersistentPort;
+import com.pragma.users.domain.spi.IUserPersistencePort;
 import com.pragma.users.domain.utils.ApiResponseFormat;
 
 import java.time.LocalDate;
@@ -14,9 +14,9 @@ import java.time.LocalDateTime;
 import java.time.Period;
 
 public class UserUseCase implements IUserServicePort {
-    private final IUserPersistentPort userPersistentPort;
+    private final IUserPersistencePort userPersistentPort;
 
-    public UserUseCase(IUserPersistentPort userPersistentPort) {
+    public UserUseCase(IUserPersistencePort userPersistentPort) {
         this.userPersistentPort = userPersistentPort;
     }
 

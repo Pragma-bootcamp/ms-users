@@ -3,7 +3,7 @@ package com.pragma.users.infraestructure.output.jpa.adapter;
 import com.pragma.users.domain.constant.ErrorMessage;
 import com.pragma.users.domain.exception.UserException;
 import com.pragma.users.domain.model.User;
-import com.pragma.users.domain.spi.IUserPersistentPort;
+import com.pragma.users.domain.spi.IUserPersistencePort;
 import com.pragma.users.domain.utils.ApiResponseFormat;
 import com.pragma.users.infraestructure.output.jpa.entity.UserEntity;
 import com.pragma.users.infraestructure.output.jpa.mapper.UserDboMapper;
@@ -12,7 +12,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 
 @RequiredArgsConstructor
-public class UserJpaAdapter implements IUserPersistentPort {
+public class UserJpaAdapter implements IUserPersistencePort {
     private final UserRepository userRepository;
     private final UserDboMapper userDboMapper;
     @Override

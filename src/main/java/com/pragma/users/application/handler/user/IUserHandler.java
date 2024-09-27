@@ -1,4 +1,4 @@
-package com.pragma.users.application.handler;
+package com.pragma.users.application.handler.user;
 
 import com.pragma.users.application.dto.user.UserRequest;
 import com.pragma.users.application.dto.user.UserResponse;

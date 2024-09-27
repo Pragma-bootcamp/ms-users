@@ -22,4 +22,18 @@ public class ErrorMessage {
     public static final String EMAIL_NOT_FOUND = "The email %s was not found";
 
     public static final String USER_BIRTHDATE_IS_FUTURE = "¿Are you of the future? You need to insert a valid birthdate";
+
+    public static final String PAGINATION_ERROR= "The values of page and size must be a positive number";
+    public static final String SORT_DIR_ERROR = "The sortBy param must be 'asc' or 'desc' only";
+
+    public static final String ID_NEGATIVE = "The id cannot be negative";
+
+    public static  final String ROLE_NAME_LENGTH_ERROR = "The length of 'name' must be between 3 and 15 characters";
+    public static  final String ROLE_DESCRIPTION_LENGTH_ERROR = "The length of 'description' must be between 3 and 90 characters";
+    public static  final String ROLE_NAME_NULL_ERROR = "The 'name' property is mandatory";
+    public static  final String ROLE_DESCRIPTION_NULL_ERROR = "The 'description' property is mandatory";
+
+    public static final String ROLE_ALREADY_EXIST = "The role '%s' already exists";
+    public static final String ROLE_NOT_FOUND = "The role with the id %d does not exist";
+
 }
