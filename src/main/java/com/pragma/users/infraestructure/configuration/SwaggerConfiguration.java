@@ -14,7 +14,7 @@ public class SwaggerConfiguration {
         return new OpenAPI()
                 .components(new Components())
                 .info(new Info()
-                        .title("User API")
+                        .title("Auth / User API")
                         .version("1.0.0")
                         .description("Api User Description")
                         .termsOfService("http://swagger.io/terms/")

@@ -53,9 +53,18 @@ public class RoleJpaAdapter implements IRolePersistencePort {
     public ApiResponseFormat<Role> getRole(int id) {
         Optional<RoleEntity> roleExist = roleRepository.findById(id);
         if(roleExist.isEmpty()) {
-            throw new RoleException(HttpStatus.NOT_FOUND.value(), ErrorMessage.ROLE_NOT_FOUND);
+            throw new RoleException(HttpStatus.NOT_FOUND.value(), String.format(ErrorMessage.ROLE_ID_NOT_FOUND,id));
         }
         Role role = roleDboMapper.toDomain(roleExist.get());
         return new ApiResponseFormat<>(role, null);
+    }
+
+    @Override
+    public Role getRoleByName(String name) {
+        Optional<RoleEntity> roleExist = Optional.ofNullable(roleRepository.findByName(name));
+        if(roleExist.isEmpty()) {
+            throw new RoleException(HttpStatus.NOT_FOUND.value(), String.format(ErrorMessage.ROLE_NAME_NOT_FOUND,name));
+        }
+        return roleDboMapper.toDomain(roleExist.get());
     }
 }

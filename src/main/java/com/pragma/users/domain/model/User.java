@@ -1,5 +1,6 @@
 package com.pragma.users.domain.model;
 
+import java.math.BigInteger;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
@@ -10,21 +11,48 @@ public class User {
     private String email;
     private String phone;
     private String password;
+    private String dni;
     private LocalDate birthdate;
+    private Role role;
     private LocalDateTime createdAt = LocalDateTime.now();
     private LocalDateTime updatedAt = LocalDateTime.now();
 
-    public User(Long id, String name, String surname, String email, String phone, String password, LocalDate birthdate) {
+    public User(Long id, String name, String surname, String email, String phone,String dni, String password, LocalDate birthdate,Role role) {
         this.id = id;
         this.name = name;
         this.surname = surname;
+        this.dni = dni;
+        this.role = role;
         this.email = email;
         this.phone = phone;
         this.password = password;
         this.birthdate = birthdate;
     }
-
     public User() {
+    }
+
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
+    }
+
+    public String getDni() {
+        return dni;
+    }
+
+    public void setDni(String dni) {
+        this.dni = dni;
+    }
+
+    public LocalDate getBirthdate() {
+        return birthdate;
+    }
+
+    public void setBirthdate(LocalDate birthdate) {
+        this.birthdate = birthdate;
     }
 
     public Long getId() {

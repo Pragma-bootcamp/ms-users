@@ -19,7 +19,6 @@ public class RoleUseCase implements IRoleServicePort {
     public RoleUseCase(IRolePersistencePort rolePersistencePort) {
         this.rolePersistencePort = rolePersistencePort;
     }
-
     @Override
     public ApiResponseFormat<List<Role>> getRoles(int page, int size, String sortDir) {
         return rolePersistencePort.getRoles(page, size, sortDir);
@@ -34,6 +33,11 @@ public class RoleUseCase implements IRoleServicePort {
     public ApiResponseFormat<Role> saveRole(Role role) {
         validateRole(role);
         return rolePersistencePort.saveRole(role);
+    }
+
+    @Override
+    public Role getRoleByName(String name) {
+        return rolePersistencePort.getRoleByName(name);
     }
 
     public void validateRole(Role role) {

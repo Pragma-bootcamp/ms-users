@@ -19,7 +19,7 @@ public class UserJpaAdapter implements IUserPersistencePort {
     public ApiResponseFormat<User> saveUser(User user) {
         UserEntity userExist = userRepository.findByEmail(user.getEmail());
         if(userExist != null) {
-            throw  new UserException(HttpStatus.CONFLICT.value(), ErrorMessage.USER_ALREADY_EXISTS);
+            throw  new UserException(HttpStatus.CONFLICT.value(), String.format(ErrorMessage.USER_ALREADY_EXISTS,user.getEmail()));
         }
         UserEntity toCrete = userDboMapper.toDbo(user);
         UserEntity created = userRepository.save(toCrete);

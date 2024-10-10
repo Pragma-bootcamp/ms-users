@@ -9,7 +9,6 @@ import com.pragma.users.domain.model.User;
 import com.pragma.users.domain.utils.ApiResponseFormat;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
-import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -22,8 +21,8 @@ public class UserHandler implements IUserHandler {
 
     @Override
     public ApiResponseFormat<UserResponse> saveUser(UserRequest userRequest) {
+        System.out.print(userRequest.getName());
         User user = userMapperRequest.toDomain(userRequest);
-        user.setPassword(BCrypt.hashpw(user.getPassword(), BCrypt.gensalt()));
         ApiResponseFormat<User> savedUser = iUserServicePort.saveUser(user);
         UserResponse userResponse = userMapperResponse.toDto(savedUser.getData());
         return new ApiResponseFormat<>(userResponse,null);
